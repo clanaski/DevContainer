@@ -88,3 +88,7 @@ Once the initial image is built:
 - [DevContainers for Azure and .NET](https://dev.to/azure/devcontainers-for-azure-and-net-5942)
 
 - [GitHub Feature Repository](https://github.com/devcontainers/features)
+
+### Needed Updates
+
+PowerShell - PowerShell v7.2.23 has reached end-of-support, please update!

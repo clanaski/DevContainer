@@ -1,0 +1,1 @@
+$env:subscription_name = "Demo"
