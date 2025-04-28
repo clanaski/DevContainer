@@ -1,0 +1,96 @@
+{
+    "build": {
+      "dockerfile": "./Dockerfile",
+      "context": ".",
+      "args": {
+        "VARIANT": "6.0-jammy"
+      }
+    },
+    "forwardPorts": [
+      7071,    // Azure Functions
+      5000,    // ASP.NET Core Web/API App, Blazor App
+      5001,
+      4280,   // Azure Static Web App CLI
+      8080
+    ],
+    "features": {
+      "ghcr.io/devcontainers/features/common-utils:1": {
+        "installZsh": true,
+        "installOhMyZsh": true,
+        "upgradePackages": true,
+        "username": "vscode",
+        "uid": "1000",
+        "gid": "1000"
+      },
+      "ghcr.io/devcontainers/features/azure-cli:1": {
+        "version": "latest"
+      },
+      "ghcr.io/devcontainers/features/node:1": {
+        "version": "lts",
+        "nodeGypDependencies": true,
+        "nvmInstallPath": "/usr/local/share/nvm"
+      },
+      "ghcr.io/devcontainers/features/powershell:1": {
+        "version": "latest",
+        "modules": ""
+      },
+      "ghcr.io/devcontainers/features/terraform:1": {
+        "installTerraformDocs": "true"
+      },
+      "ghcr.io/devcontainers/features/java:1": {},
+      "ghcr.io/devcontainers/features/git:1": {},
+      "ghcr.io/devcontainers/features/dotnet:2": {
+        "additionalVersions": "lts"
+      },
+      "ghcr.io/devcontainers/features/python:1": {},
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+      "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          // GitHub
+          "cschleiden.vscode-github-actions",
+          "GitHub.vscode-pull-request-github",
+          // Azure
+          "ms-azuretools.vscode-bicep",
+          // Collaboration
+          "eamodio.gitlens",
+          "EditorConfig.EditorConfig",
+          "MS-vsliveshare.vsliveshare-pack",
+          "streetsidesoftware.code-spell-checker",
+          // .NET
+          "Fudge.auto-using",
+          "jongrant.csharpsortusings",
+          "kreativ-software.csharpextensions",
+          // Power Platform
+          "microsoft-IsvExpTools.powerplatform-vscode",
+          // Markdown
+          "bierner.github-markdown-preview",
+          "DavidAnson.vscode-markdownlint",
+          "docsmsft.docs-linting",
+          "johnpapa.read-time",
+          "yzhang.markdown-all-in-one",
+          // Required
+          "GitHub.copilot",
+          "ms-dotnettools.csharp",
+          "ms-vscode.PowerShell",
+          "ms-vscode.vscode-node-azure-pack",
+          "VisualStudioExptTeam.vscodeintellicode",
+          // Custom Picked
+          "dbaeumer.vscode-eslint",
+          "HashiCorp.terraform"
+        ],
+        "settings": {
+          "terminal.integrated.defaultProfile.linux": "zsh",
+          "terminal.integrated.profiles.linux": {
+            "zsh": {
+              "path": "/usr/bin/zsh"
+            }
+          }
+        }
+      }
+    },
+  "postCreateCommand": "/usr/bin/zsh ./.devcontainer/post-create.sh > ~/post-create.log"
+  }
+  
